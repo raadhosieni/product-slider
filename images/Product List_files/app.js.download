@@ -1,0 +1,73 @@
+//select up angle
+const upAngle = document.querySelector('.up');
+// select down angle 
+const downAngle = document.querySelector('.down');
+//select images inside slider
+const imgs = document.querySelectorAll('.slider img');
+//select bullets
+const bullets = document.querySelectorAll('.container .slider-controls ul li');
+//this variable to track current image index
+let currentImage = 0;
+
+
+//handle click event on up angle
+upAngle.onclick = function() {
+    if (currentImage > 0) {
+        currentImage--;
+        moveSliderIn();
+        showSlider();
+    }
+    
+}
+
+
+//handle click event on down angle
+downAngle.onclick = function() {
+    if (currentImage < imgs.length - 1) {
+        currentImage++;
+        moveSliderOut();
+        showSlider();
+    }
+}
+
+//handle click event on bullets
+bullets.forEach(function(bullet, i) {
+    bullet.onclick = function() {
+        currentImage = i;
+        moveSlider();    
+    }
+})
+
+function moveSliderIn() {
+    if (currentImage > 0) {
+        imgs[currentImage + 1].classList.add('in');
+    }
+}
+
+function moveSliderOut() {
+    if (currentImage > 0) {
+        imgs[currentImage - 1].classList.add('out');
+    }
+}
+
+function showSlider() {
+    moveSlider();
+}
+
+function moveSlider() {
+    //remove active class from all images
+    imgs.forEach(function(img) {
+        img.classList.remove('show');
+    })
+    //add active class to current image
+    imgs[currentImage].classList.remove('out');
+    imgs[currentImage].classList.remove('in');
+    imgs[currentImage].classList.add('show');
+
+    //remove active class from all bullets
+    bullets.forEach(function(bullet) {
+        bullet.classList.remove('active');
+    })
+    //add active class to current bullet
+    bullets[currentImage].classList.add('active');
+}

@@ -1,0 +1,129 @@
+body {
+  background-color: black;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 140px auto 0;
+  /* background-color: yellow; */
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+    flex-direction: row;
+  }
+
+  .container .text {
+    padding: 20px;
+    text-align: left !important;
+    margin-top: 0 !important;
+  }
+}
+
+.slider-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slider-container .slider {
+  width: 70%;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-container .slider img {
+  position: absolute;
+  top: -1000px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 1s ease-out;
+}
+
+.slider-container .slider img.show {
+  top: 50px;
+}
+
+.slider-container .slider img.in {
+  top: -1000px;
+}
+
+.slider-container .slider img.out {
+  top: 1000px;
+}
+
+.slider-container i {
+  color: #ccc;
+  position: absolute;
+  left: 38%;
+  font-size: 40px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.slider-container i:hover {
+  color: #fff;
+}
+
+.slider-container i.up {
+  top: -50px;
+}
+
+.slider-container i.down {
+  bottom: -50px;
+}
+
+.slider-container i.disable {
+  color: #555;
+  cursor: no-drop;
+}
+
+.slider-controls ul li {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: 1px solid red;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.4s;
+}
+
+.slider-controls ul li.active,
+.slider-controls ul li:hover {
+  background-color: red;
+}
+
+.slider-controls ul li.disable {
+  background-color: #555 !important;
+  border-color: #555;
+  cursor: no-drop;
+}
+
+.container .text {
+  color: #eee;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.container .text h2 {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.container .text p {
+  line-height: 2;
+}
