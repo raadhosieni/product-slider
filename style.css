@@ -126,4 +126,5 @@ body {
 
 .container .text p {
   line-height: 2;
+  font-weight: 300;
 }
